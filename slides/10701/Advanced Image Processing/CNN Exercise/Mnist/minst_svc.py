@@ -1,5 +1,5 @@
 from sklearn.datasets import load_digits  # 載入預設手寫資料庫
-from sklearn.cross_validation import train_test_split  # 切割資料為訓練與測試集  
+from sklearn.model_selection import train_test_split  # 切割資料為訓練與測試集  
 from sklearn.preprocessing import StandardScaler  # 標準化
 from sklearn.svm import LinearSVC  
 from sklearn.metrics import classification_report  # 預測結果的分析工具  
@@ -24,7 +24,7 @@ for i in range(10):
     ax.text(0, 9, str(digits.target[i]))
 
 # 顯示圖形
-plt.show()
+plt.show();
   
 # 分割數據
 X_train, X_test, Y_train, Y_test = train_test_split(digits.data, digits.target, test_size=0.25)  
