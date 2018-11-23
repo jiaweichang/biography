@@ -1,7 +1,8 @@
 from sklearn.datasets import load_digits  # 載入預設手寫資料庫
 from sklearn.model_selection import train_test_split  # 切割資料為訓練與測試集  
 from sklearn.preprocessing import StandardScaler  # 標準化
-from sklearn.svm import LinearSVC  
+from sklearn.neighbors import KNeighborsClassifier
+#from sklearn.svm import LinearSVC  
 from sklearn.metrics import classification_report  # 預測結果的分析工具  
 import matplotlib.pyplot as plt
 
@@ -32,10 +33,13 @@ X_train, X_test, Y_train, Y_test = train_test_split(digits.data, digits.target, 
 ss = StandardScaler() #標準化方法 Step 2. 預處理 (原始值−均值)/標準差
 X_train = ss.fit_transform(X_train)
 X_test = ss.transform(X_test)
+
+kNN = KNeighborsClassifier(n_neighbors=3)
+kNN = fit(X_train, Y_train)
+Y_predict = kNN.predict(X_test)
   
-lsvc = LinearSVC()
-lsvc.fit(X_train, Y_train) # Step 3. & 4. 特徵提取與檢測  
-  
-Y_predict = lsvc.predict(X_test) # Step 5. 分類
+#lsvc = LinearSVC()
+#lsvc.fit(X_train, Y_train) # Step 3. & 4. 特徵提取與檢測  
+#Y_predict = lsvc.predict(X_test) # Step 5. 分類
   
 print (classification_report(Y_test, Y_predict, target_names=digits.target_names.astype(str))) # Step 5. 驗證
