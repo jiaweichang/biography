@@ -2,7 +2,7 @@
 <html>
   <head>
     <meta charset="UTF-8">
-    <title>Firebase Authentication via Facebook</title>
+    <title>Firebase Authentication via Goolge</title>
     <script src="https://code.jquery.com/jquery-3.1.0.min.js"></script>
 	<script src="https://www.gstatic.com/firebasejs/5.7.1/firebase.js"></script>
 	<script>
@@ -21,10 +21,10 @@
     <script>
         $(document).ready(function(){  
 
-        	var provider = new firebase.auth.FacebookAuthProvider();
+        	var provider = new firebase.auth.GoogleAuthProvider();
 		    //所需授權的Scope 
-		    provider.addScope('user_birthday');
-		    provider.setCustomParameters({'display': 'popup'});
+		    provider.addScope('https://www.googleapis.com/auth/contacts.readonly');
+		    provider.setCustomParameters({'login_hint': 'user@example.com'});
 
 		    var userLogin;
 
@@ -46,7 +46,7 @@
 	               var token = result.credential.accessToken;
 	               // 使用者資料
 	               userLogin = result.user;
-	               alert("成功使用 Facebook 帳號登入！");
+	               alert("成功使用 Google 帳號登入！");
 	            }).catch(function(error) {
 	            	// Handle Errors here.
 	                var errorCode = error.code;
