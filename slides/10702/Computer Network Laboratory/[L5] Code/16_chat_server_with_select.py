@@ -1,8 +1,3 @@
-#!/usr/bin/env python
-# Python Network Programming Cookbook, Second Edition -- Chapter - 2
-# This program is optimized for Python 2.7.12 and Python 3.5.2.
-# It may run on any other version with/without modifications.
-
 import select
 import socket
 import sys
