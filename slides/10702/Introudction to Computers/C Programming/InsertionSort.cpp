@@ -22,13 +22,12 @@ void output_arr(int arr[], int n)
 	for(int i = 0; i < n; i++)
 	{
 		printf("%d", arr[i]);
-		printf("\n");
 	}
 }
 
 int main()
 {
-	int arr1 = {3, 2, 1, 7, 6, 5, 9, 8, 7};
+	int arr1[] = {3, 2, 1, 7, 6, 5, 9, 8, 7};
 
 	int n = SIZE_OF_ARRAY(arr1);
 	printf("%d\n", n);
