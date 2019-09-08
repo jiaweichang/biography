@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+    <h2>Grouping Form Data with Fieldset</h2>
+    <p>The fieldset element is used to group related data in a form, 
+    and the legend element defines a caption for the fieldset element.</p>
+
+    <!--
+        /action_page.php?firstname=Mickey&lastname=Mouse
+    -->
+
+    <form action="insert_page.php" method="post"> 
+      <fieldset>
+        <legend>Personal information</legend>
+        Name:<br>
+        <input type="text" name="name" value="Jia Wei Chang">
+        <br>
+        Email:<br>
+        <input type="text" name="email" value="jwchang@nutc.edu.tw">
+        <br><br>
+        <input type="submit" value="Submit">
+      </fieldset>
+    </form>
+
+</body>
+</html>

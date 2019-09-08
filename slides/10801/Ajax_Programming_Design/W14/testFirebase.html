@@ -1,0 +1,53 @@
+<html>
+
+<script src="https://www.gstatic.com/firebasejs/5.7.0/firebase.js"></script>
+<script>
+	// Initialize Firebase
+	var config = {
+		apiKey: "AIzaSyCeNTtjWefxoTGgRLYn1h_RG4O5ujyWwUg",
+		authDomain: "test-1e3a7.firebaseapp.com",
+		databaseURL: "https://test-1e3a7.firebaseio.com",
+		projectId: "test-1e3a7",
+		storageBucket: "test-1e3a7.appspot.com",
+		messagingSenderId: "10397822667"
+	};
+
+	firebase.initializeApp(config);
+</script>
+
+<script>
+var db = firebase.database();
+
+function writeUserData(userId, name, email, webUrl) {
+
+	// 這個例子是會創一個 users 的 collection
+
+	db.ref('/users/' + userId).set({
+		username: name,
+	    email: email,
+	    personal_website: webUrl
+	})
+	.then(function () {alert("建立成功");})
+	.catch(function () {alert("伺服器發生錯誤，請稍後再試");});
+}
+
+//writeUserData(1, 'Gary', 'gary@nutc.edu.tw', 'http://gary.tw')
+//writeUserData(2, 'Jason', 'jason@nutc.edu.tw', 'http://jason.tw')
+</script>
+
+<script>
+function readUserData(userId) {
+	db.ref('/users/' + userId).once('value', function (snapshot) {
+		var data = snapshot.val();
+	    console.log(data);
+	});
+}
+</script>
+
+<body>
+	<button onclick="writeUserData(1, 'Gary', 'gary@nutc.edu.tw', 'http://gary.tw')"> write</button>
+	<button onclick="readUserData(1)"> read</button>
+</body>
+
+
+</html>
