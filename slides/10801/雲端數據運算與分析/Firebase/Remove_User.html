@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Firebase Realtime Database</title>
+    <script src="https://code.jquery.com/jquery-3.1.0.min.js"></script>
+	<script src="https://www.gstatic.com/firebasejs/5.7.1/firebase.js"></script>
+	<script>
+	  // Initialize Firebase
+	  var config = {
+	    apiKey: "AIzaSyCeNTtjWefxoTGgRLYn1h_RG4O5ujyWwUg",
+	    authDomain: "test-1e3a7.firebaseapp.com",
+	    databaseURL: "https://test-1e3a7.firebaseio.com",
+	    projectId: "test-1e3a7",
+	    storageBucket: "test-1e3a7.appspot.com",
+	    messagingSenderId: "10397822667"
+	  };
+	  firebase.initializeApp(config);
+	  var db = firebase.database(); 
+	</script>
+
+    <script>
+        function writeUserData(userId, name, email) {
+          db.ref('users/' + userId).set({
+            username: name,
+            email: email
+          }).then(function () {alert("成功創建使用者！");})
+	        .catch(function () {alert("伺服器發生錯誤，請稍後再試。");});
+        }
+
+        function removeUser(userId) {
+          // 法一
+          db.ref('users/' + userId).remove();   
+          // 法二
+          /*
+          firebase.database().ref('users/' + userId).set({
+            username: null,
+          });
+          */
+        }        
+        
+        $(document).ready(function(){
+            /* 建立使用者 */
+            $("#create_user").click(function(){
+                var id          = $('#create_id').val();
+                var email       = $('#create_email').val();
+                var name        = $('#create_name').val(); 
+                writeUserData(id,name,email);
+            });
+
+            $("#delete_test").click(function(){
+                var userId          = $('#delete_user').val();
+                removeUser(userId);
+            });
+            
+            function display_users(data_val){
+              keys = Object.keys(data_val);
+              users = '';
+              //alert(data_val[keys[0]]['username']);
+              
+              for (var i = keys.length - 1; i >= 0; i--) {
+                users += keys[i]+". "+data_val[keys[i]]['username']+', '+data_val[keys[i]]['email']+'<br>';
+              }
+              $('#data').html(users);  
+               
+            }
+            
+            db.ref('users/').on('value', function(snapshot) {
+              //alert(Object.keys(snapshot.val()))
+              display_users(snapshot.val());
+            });  
+
+        });         
+    </script>
+  </head>
+  <body>
+    <h1>Firebase Realtime Database</h1>
+    <h3>建立使用者帳號</h3>
+    <input type="text" id="create_id"        placeholder="ID"/>
+    <input type="text" id="create_email"     placeholder="Email"/>
+    <input type="text" id="create_name"      placeholder="名稱"/>
+    <button id="create_user">建立</button><br><br>
+
+    <h3>刪除使用者帳號</h3>
+    <input type="text" id="delete_user"       placeholder="使用者帳號"/>
+    <button id="delete_test">刪除</button><br><br>      
+
+    <label>-----[所有的用戶]-----</label><br>
+    <label  id="data"></label><br>
+  </body>
+</html>
