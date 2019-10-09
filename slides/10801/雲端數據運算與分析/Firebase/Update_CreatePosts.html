@@ -34,7 +34,7 @@
           var newPostKey = db.ref().child('posts').push().key;
           // Write the new post's data simultaneously in the posts list and the user's post list.
           var updates = {};
-          updates['/posts/' + newPostKey] = postData;
+          updates['posts/' + newPostKey] = postData;
           //updates['/user-posts/' + uid + '/' + newPostKey] = postData;
           return db.ref().update(updates);
         }
@@ -47,7 +47,8 @@
             //starCount: star
           //};
           var updates = {};
-          updates['/posts/' + key + '/starCount'] = star;
+          updates['posts/' + key + '/title'] = 'title';
+          updates['posts/' + key + '/starCount'] = star;
           //updates['/user-posts/' + uid + '/' + newPostKey] = postData;
           return db.ref().update(updates);
         }
