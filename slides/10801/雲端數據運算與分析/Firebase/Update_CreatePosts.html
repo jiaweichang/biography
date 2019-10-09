@@ -37,6 +37,23 @@
           updates['/posts/' + newPostKey] = postData;
           //updates['/user-posts/' + uid + '/' + newPostKey] = postData;
           return db.ref().update(updates);
+        }
+
+        function updateStar(key) {
+          // A post entry.
+          star = randomNumber()
+
+          //var postData = {
+            //starCount: star
+          //};
+          var updates = {};
+          updates['/posts/' + key + '/starCount'] = star;
+          //updates['/user-posts/' + uid + '/' + newPostKey] = postData;
+          return db.ref().update(updates);
+        }
+
+        function randomNumber(){
+        	return Math.floor((Math.random() * 5) + 1)
         }         
         
         $(document).ready(function(){
@@ -54,11 +71,13 @@
               posts = '';
               
               for (var i = keys.length - 1; i >= 0; i--) {
+              	  //alert(keys[i])
                   posts += 'UserID: '+data_val[keys[i]]['uid']+'<br>';
                   posts += 'Author: '+data_val[keys[i]]['author']+'<br>';
                   posts += 'Title: '+data_val[keys[i]]['title']+'<br>';
                   posts += 'Body: '+data_val[keys[i]]['body']+'<br>';
                   posts += 'Star: '+data_val[keys[i]]['starCount']+'<br>';
+                  posts += '<button onclick=\"updateStar(\''+keys[i]+'\')\">星級更新</button>'+'<br>';
                   posts += '----------------------<br>';
                   posts += '----------------------<br>';
               }
