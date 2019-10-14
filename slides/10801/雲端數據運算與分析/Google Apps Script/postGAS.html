@@ -1,0 +1,19 @@
+<html>
+	<head>
+		<script src="https://code.jquery.com/jquery-1.12.4.min.js" 
+		integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" 
+		crossorigin="anonymous"></script>
+	</head>
+	<script>
+        $.post('https://script.google.com/macros/s/AKfycbzWPdE6o7X3NFDzA14G9WduJI7SxEC-4cW3m3-Xe69LdKf5s2lM/exec',{
+		    name:'Gary',
+		    age:31
+		},function(e){
+		    console.log(e);
+		    $("#content").html(e);
+		});
+	</script>
+	<body>
+		<label id="content"></label>
+	</body>
+</html>

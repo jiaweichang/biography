@@ -1,0 +1,18 @@
+<html>
+	<head>
+		<script src="https://code.jquery.com/jquery-1.12.4.min.js" 
+		integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" 
+		crossorigin="anonymous"></script>
+	</head>
+	<script>
+		$.get("https://script.google.com/macros/s/AKfycbzaM8zDKKU-Dq0tmgltgjkG7xgzD18ueEQ_t-JpF1BxuPfOZe0a/exec?name=Gary&age=31",
+            function(json){
+                console.log(json);
+                $("#content").html(json);
+            }
+        );
+	</script>
+	<body>
+		<label id="content"></label>
+	</body>
+</html>
