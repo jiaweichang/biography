@@ -21,8 +21,10 @@
 			    console.log(e);
 
 			    var show = "";
-			    for (var i = Object.keys(e).length ; i > 0; i--) 
-			    	show += "ID: "+i+" Name:"+e[i]['name']+", Email:"+e[i]['email']+", Password:"+e[i]['pwd']+" - - - - - <a href='#' onclick='remove("+i+")'>Remove</a>"+"<br>";
+			    var obj = Object.keys(e);
+
+			    for (var i = Object.keys(e).length-1 ; i >= 0; i--) 
+			    	show += "ID: "+obj[i]+" Name:"+e[obj[i]]['name']+", Email:"+e[obj[i]]['email']+", Password:"+e[obj[i]]['pwd']+" - - - - - <a href='#' onclick='remove("+obj[i]+")'>Remove</a>"+"<br>";
 			    
 			    $("#content").html(show);
 			});
