@@ -1,0 +1,122 @@
+<html>
+	<head>
+		<script src="https://code.jquery.com/jquery-1.12.4.min.js" 
+		integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" 
+		crossorigin="anonymous"></script>
+	</head>
+	<script>
+		function hello()
+		{
+	        $.post('http://127.0.0.1:5000/',
+	        	function(e){
+			    console.log(e);
+			    $("#content").html(e);
+			});
+	    }
+	    
+	    function getAllUsers()
+		{
+	        $.post('http://127.0.0.1:5000/users/all',
+	        	function(e){
+			    console.log(e);
+
+			    var show = "";
+			    var obj = Object.keys(e);
+
+			    for (var i = Object.keys(e).length-1 ; i >= 0; i--) 
+			    	show += "ID: "+obj[i]+" Name:"+e[obj[i]]['name']+", Email:"+e[obj[i]]['email']+", Password:"+e[obj[i]]['pwd']+" - - - - - <a href='#' onclick='remove("+obj[i]+")'>Remove</a>"+"<br>";
+			    
+			    $("#content").html(show);
+			});
+	    }
+        
+	    function getUser()
+		{
+	        $.post('http://127.0.0.1:5000/user',
+	        {
+			    name:'Gary'
+			},function(e){
+			    console.log(e);
+			    $("#content").html(JSON.stringify(e));
+			});
+	    }
+
+	    function remove(id)
+		{
+	        $.post('http://127.0.0.1:5000/remove',
+	        {
+			    id: id
+			},function(e){
+			    getAllUsers()
+			});
+	    }
+
+	    function addUser()
+		{
+			var name = $('#name'),
+		        email = $('#email'),
+		        password = $('#password');
+		    
+		    var parameter = 
+		    {
+		        name: name.val(),
+		        email: email.val(),
+		        password: password.val()
+		    };
+		  	  
+		  	$.post('http://127.0.0.1:5000/add', parameter, 
+		  	  	function(e) { 
+		            getAllUsers();
+		        }
+		    );
+	    }
+
+	     function updateUser()
+		{
+			var uid = $('#uid'),
+			    name = $('#name1'),
+		        email = $('#email1'),
+		        password = $('#password1');
+		    
+		    var parameter = 
+		    {
+		    	uid: uid.val(),
+		        name: name.val(),
+		        email: email.val(),
+		        password: password.val()
+		    };
+		  	  
+		  	$.post('http://127.0.0.1:5000/update', parameter, 
+		  	  	function(e) { 
+		            getAllUsers();
+		        }
+		    );
+	    }
+	</script>
+	<body>
+		<div>
+			<h1>Add New User</h1>
+			NAME: <input id="name" type="text"><br>
+			EMAIL: <input id="email" type="text"><br>
+			PASSWORD: <input id="password" type="text"><br>
+			<button onclick="addUser()">Add</button>
+	    </div>
+	    <br><br>
+	    <div>
+			<h1>Update User</h1>
+			ID: <input id="uid" type="text"><br>
+			NAME: <input id="name1" type="text"><br>
+			EMAIL: <input id="email1" type="text"><br>
+			PASSWORD: <input id="password1" type="text"><br>
+			<button onclick="updateUser()">Update</button>
+	    </div>
+	    <br><br>
+		<div>
+			<button onclick="hello()">Hello</button>
+			<button onclick="getAllUsers()">Users</button>
+			<button onclick="getUser()">User</button>
+		</div>
+		<br>
+		<div id="content"></div>
+	</body>
+</html>
