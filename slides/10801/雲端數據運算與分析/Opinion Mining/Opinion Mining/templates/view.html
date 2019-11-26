@@ -1,0 +1,31 @@
+<html>
+  <head>
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js" 
+    integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" 
+    crossorigin="anonymous"></script>
+  </head>
+  <script>
+    function enterSentence()
+    {
+      var sent = $('#sentence');
+      var parameter =
+      {
+        sentence: sent.val()
+      };
+
+      $.post('http://127.0.0.1:5000/', parameter,
+        function(e){
+          $("#content").html(e);
+        });
+    }
+  </script>
+  <body>
+    <div>
+      <h1>Enter Sentence</h1>
+      Sentence: <input id="sentence" type="text"><br>
+      <button onclick="enterSentence()">Submit</button>
+    </div>
+    <br>
+    <div id="content">{{reply}}</div>
+  </body>
+</html>
