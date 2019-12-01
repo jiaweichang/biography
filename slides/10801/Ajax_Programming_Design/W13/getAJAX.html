@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+	<script>
+		$(document).ready(function(){
+		  $("#txt1").keyup(function(){
+		  	var str = $("#txt1").val();
+		    $.get("gethint.php", {q: str}, 
+		    	function(data){
+		    		$("#txtHint").html(data);
+		        });
+		  });
+		});
+	</script>
+</head>
+
+<body>
+
+<h2>The XMLHttpRequest Object</h2>
+
+<h3>Start typing a name in the input field below:</h3>
+
+<p>Suggestions: <span id="txtHint"></span></p> 
+
+<p>First name: <input type="text" id="txt1""></p>
+
+
+</body>
+</html>
+
