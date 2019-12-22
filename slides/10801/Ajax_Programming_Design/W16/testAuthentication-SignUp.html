@@ -29,7 +29,7 @@
                   const errorMessage = error.message;
                   // ...
                   alert(errorMessage)
-                }).then(function () {alert("成功創建用戶認證！");});
+                }).then(function (error) { if (!error) alert("成功創建用戶認證！");});
             });                         
         });         
     </script>
