@@ -14,7 +14,7 @@
   <div class="message_holder"></div> 
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/1.7.3/socket.io.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.2.0/socket.io.js"></script>
   
   <script type="text/javascript">
     var socket = io.connect('http://' + document.domain + ':' + location.port);
@@ -35,7 +35,7 @@
     } )
     socket.on( 'my response', function( msg ) {
       console.log( msg )
-      if( typeof msg.user_name !== 'undefined' ) {
+      if( typeof msg.user_name !== 'undefined' && msg.user_name.length >0) {
         $( 'h3' ).remove()
         $( 'div.message_holder' ).append( '<div><b style="color: #000">'+msg.user_name+': </b> '+msg.message+'</div>' )
       }

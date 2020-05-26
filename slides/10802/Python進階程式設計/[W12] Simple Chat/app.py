@@ -3,6 +3,7 @@ from flask_socketio import SocketIO
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = '1126'
+app.config["JSON_AS_ASCII"] = False
 socketio = SocketIO(app)
 
 @app.route('/')
