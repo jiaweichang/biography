@@ -1,0 +1,7 @@
+1. https://leemeng.tw/neural-machine-translation-with-transformer-and-tensorflow2.html
+
+2. https://leemeng.tw/attack_on_bert_transfer_learning_in_nlp.html
+
+3. http://speech.ee.ntu.edu.tw/~tlkagk/courses/ML_2019/Lecture/Transformer%20(v5).pdf
+
+4. https://jalammar.github.io/illustrated-transformer/
