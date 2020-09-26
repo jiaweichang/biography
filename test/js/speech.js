@@ -21,7 +21,7 @@
     const speechRecognition = new SpeechRecognition() || webkitSpeechRecognition() || null;
 
     /** API網址 */
-    const apiUrl = ('https://itri.dasgo.com.tw:5002/webhooks/rest/webhook');
+    const apiUrl = ('http://itri.dasgo.com.tw:5002/webhooks/rest/webhook');
 
     speechRecognition.continuous = false;
     speechRecognition.lang = 'cmn-Hant-TW';
