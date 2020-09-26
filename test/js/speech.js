@@ -18,7 +18,7 @@
     const messageTextSendButton = document.getElementById('send');
 
     /** 語音識別 */
-    const speechRecognition = new SpeechRecognition() || webkitSpeechRecognition() || null;
+    const speechRecognition = new webkitSpeechRecognition();
 
     /** API網址 */
     const apiUrl = ('http://itri.dasgo.com.tw:5002/webhooks/rest/webhook');
