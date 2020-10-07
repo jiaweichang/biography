@@ -1,0 +1,84 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html lang="zh-Hant-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>託運單資料查詢</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <link rel="stylesheet" href="css/style.css" type="text/css">
+    <script>
+        if (!('webkitSpeechRecognition' in window)) {
+            alert("不支援語音辨識套件")
+        }
+        $(document).ready(function () {
+                $("html").scrollTop($(document).height() + 100);            
+        })
+    </script>
+</head>
+<body>
+    <div class="wrapper">
+        <div id="header" class="header">
+            <div class="section" style="background: url(images/bg-logo.png) repeat-x top left;">
+                <div class="logo">
+                    <h2 style="text-align: center; color: white; height: 10vh;line-height: 10vh; margin: 0; padding: 0;">
+                        智慧物流語音助理
+                    </h2>
+                </div>
+            </div>
+        </div>
+        <div id="body" class="main-content">
+            <div class="container-fluid" style="height: 80vh;">
+                <h3 style="text-align: center; height: 60px; line-height: 60px;">查詢內容</h3>
+                <div class="row">
+                    <div class="col-lg-3 col-sm-2 col-sm-1 col-xs-1">
+                    </div>
+                    <div class="col-lg-6 col-md-8 col-sm-10 col-xs-10">
+                        <div id="talk">
+                            <div id="cube"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-3 col-sm-2 col-sm-1 col-xs-1">
+                    </div>
+                    <div class="col-lg-6 col-md-8 col-sm-10 col-xs-10">
+                        <input type="text" id="textarea" placeholder="請輸入對話"
+                               style="margin-top: 10px; margin-bottom: 10px; height: 50px; width:100%">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-3 col-sm-2 col-sm-1 col-xs-1">
+                    </div>
+                    <div class="col-lg-6 col-md-8 col-sm-10 col-xs-10">
+                        <button class="btn btn-primary" type="button" onclick="textinput()"
+                                style="margin-top: 10px; margin-bottom: 10px;height: 50px;width: 65%">
+                            送出
+                        </button>
+                        <button id="mic_button">
+                            <img alt="語音" id="mic" src="images/mic.png" style="height: 50px">
+                        </button>
+                    </div>
+                </div>           
+            </div>
+            </div>
+            <div id="footer" class="footer">
+                <div style="margin: 0 auto; text-align: center;">
+                    <p style="text-align: center; color: white; line-height: 10vh; margin: 0; padding: 0;">
+                        Smart Assistant for Logistic | NLP Lab, CSIE, NTCUST 2020
+                    </p>
+                </div>
+            </div>
+        </div>
+    <script type="text/javascript" src="js/speech.new.js"></script>
+</body>
+</html>
