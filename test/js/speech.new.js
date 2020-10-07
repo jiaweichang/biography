@@ -102,7 +102,6 @@ function setUp() {
             else
             {
                 $('#textarea').val(final_transcript)
-                textinput();
             }                        
             //$('#textarea').val(final_transcript)
             //final_span.innerHTML = final_transcript;
