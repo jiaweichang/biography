@@ -1,5 +1,5 @@
 var language = 'cmn-Hant-TW';
-showInfo('info_start');
+//showInfo('info_start');
 
 var final_transcript = '';
 var recognizing = false;
@@ -27,26 +27,26 @@ function setUp() {
 
         recognition.onstart = function () {
             recognizing = true;
-            showInfo('info_speak_now');
+            //showInfo('info_speak_now');
             start_img.src = '//google.com/intl/en/chrome/assets/common/images/content/mic-animate.gif';
         };
 
         recognition.onerror = function (event) {
             if (event.error == 'no-speech') {
                 start_img.src = '//google.com/intl/en/chrome/assets/common/images/content/mic.gif';
-                showInfo('info_no_speech');
+                //showInfo('info_no_speech');
                 ignore_onend = true;
             }
             if (event.error == 'audio-capture') {
                 start_img.src = '//google.com/intl/en/chrome/assets/common/images/content/mic.gif';
-                showInfo('info_no_microphone');
+                //showInfo('info_no_microphone');
                 ignore_onend = true;
             }
             if (event.error == 'not-allowed') {
                 if (event.timeStamp - start_timestamp < 100) {
-                    showInfo('info_blocked');
+                    //showInfo('info_blocked');
                 } else {
-                    showInfo('info_denied');
+                    //showInfo('info_denied');
                 }
                 ignore_onend = true;
             }
@@ -59,10 +59,10 @@ function setUp() {
             }
             start_img.src = '//google.com/intl/en/chrome/assets/common/images/content/mic.gif';
             if (!final_transcript) {
-                showInfo('info_start');
+                //showInfo('info_start');
                 return;
             }
-            showInfo('');
+            //showInfo('');
             //if (window.getSelection) {
             //    window.getSelection().removeAllRanges();
             //    var range = document.createRange();
@@ -122,7 +122,7 @@ function startButton(event) {
     //textarea.innerHTML = '';
     //textarea.innerHTML = '';
     start_img.src = '//google.com/intl/en/chrome/assets/common/images/content/mic-slash.gif';
-    showInfo('info_allow');
+    //showInfo('info_allow');
     start_timestamp = event.timeStamp;
 }
 
