@@ -131,6 +131,7 @@ function showInfo(info_id) {
     // try: comment out the contents of this function
 
     if (info_id) {
+        var info = document.getElementById("info");
         for (var child = info.firstChild; child; child = child.nextSibling) {
             if (child.style) {
                 child.style.display = child.id == info_id ? 'inline' : 'none';
