@@ -2,12 +2,12 @@
 	overflow:auto;
 	overflow-X:hidden;
 	width: 100%;
-	height: 400px;
+	height: 45vh;
 	background-color: rgb(188, 197, 188);
 }
 #mic_button {
-	position:absolute;
-	left: 30%;
+    left: 4%;
+    position: relative;
 }
 
 .input {
@@ -15,12 +15,9 @@
 	width: 130px;
 }
 .cube{
-	text-align: right;
 	width: auto;
 	height: auto;
 	border-radius: 3px;
-	border-color: gray;
-	border-width:3px;
 	background-color: green;
 	position: relative;
 	margin: 0 auto;
@@ -31,11 +28,38 @@
 	width: auto;
 	height: auto;
 	border-radius: 3px;
-	border-color: gray;
-	border-width:3px;
 	background-color:gray;
 	position: relative;
 	margin: 0 auto;
 	color: #fff;
 	line-height: 50px;	
+}
+html,body{
+  height: 100%;
+  /* background-color: azure; */
+}
+.header{
+    box-sizing: border-box;
+}
+.main-content{
+    padding-top: 10px;
+    padding-bottom: 40px;
+}
+.footer{
+    /* 設定footer的高度 */
+    /*height: 80px;*/
+    /*line-height:80px;*/
+    box-sizing: border-box;
+    /* 設定footer絕對位置在底部 */
+    position: absolute;
+    bottom: 0;
+    /* 展開footer寬度 */
+    width: 100%;
+    background: #4c8f96;
+}
+.wrapper {
+    /* 設定高度最小為100%, 如果內容區塊很多, 可以長大 */
+    min-height: 100%;
+    /* 位置設為relative, 作為footer區塊位置的參考 */
+    position: relative;
 }
