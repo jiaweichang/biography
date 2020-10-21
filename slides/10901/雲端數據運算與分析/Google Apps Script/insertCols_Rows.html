@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+
+<head>
+  <meta charset="UTF-8">
+  <script src="https://code.jquery.com/jquery-1.12.4.min.js" 
+    integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" 
+    crossorigin="anonymous"></script>
+</head>
+
+<body>
+  Google App Script：<input id="appUrl" value="https://script.google.com/macros/s/AKfycbzQlo-EguT96N4INFEOQB55UlW053R67VGQKoSTWXTPI1f6QjA1/exec"><br/> 
+  試算表網址：<input id="sheetsUrl" value="https://docs.google.com/spreadsheets/d/17rOrO4bnvYjq0-AJbY0Y0OLdzGZPlN1DGCXehixfq9g/edit#gid=0"><br/> 
+  工作表名稱：<input id="sheetName" value="testSheet"><br/>
+  插入的Column Index：<input id="colIndex" value="0"><br/>
+  插入的Column Number：<input id="numCols" value="0"><br/>
+  插入的Row Index：<input id="rowIndex" value="0"><br/>
+  插入的Row Number：<input id="numRows" value="0"><br/>
+  <button id="sendBtn">Set</button><br/>
+  
+  <script>
+    var appUrl = $('#appUrl'),
+    	sheetsUrl = $('#sheetsUrl'),
+      sheetName = $('#sheetName'),
+      colIndex = $('#colIndex'),
+      numCols = $('#numCols'),
+      rowIndex = $('#rowIndex'),
+      numRows = $('#numRows'),
+      sendBtn = $('#sendBtn')
+    var parameter = {};
+
+    sendBtn.on('click',function() {
+      parameter = {
+        url: sheetsUrl.val(),
+        name: sheetName.val(),
+        colIndex: colIndex.val(),
+        numCols: numCols.val(),
+        rowIndex: rowIndex.val(),
+        numRows: numRows.val()
+      };
+  	  $.post(appUrl.val(), parameter, function(data) { 
+        alert(data); }
+        );
+    });
+  </script>
+
+</body>
+
+</html>

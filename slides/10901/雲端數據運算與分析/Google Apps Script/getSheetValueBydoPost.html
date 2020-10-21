@@ -1,0 +1,21 @@
+<html>
+	<head>
+		<script src="https://code.jquery.com/jquery-1.12.4.min.js" 
+		integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" 
+		crossorigin="anonymous"></script>
+	</head>
+	<script>
+        $.post('https://script.google.com/macros/s/AKfycbxPSW8Qfb0QiHv56IDWfCwVFvC3sfj2ZSMbjOYROOsnmlimOQA/exec',
+        {
+		    row:2,
+		    col:1
+		},
+		function(e){
+		    console.log(e);
+		    $("#content").html(e);
+		});
+	</script>
+	<body>
+		<label id="content"></label>
+	</body>
+</html>

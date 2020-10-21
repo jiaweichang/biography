@@ -1,0 +1,39 @@
+<html>
+  <head>
+  	<script src=https://d3js.org/d3.v3.min.js charset="utf-8"></script>
+  	<script type="text/javascript">
+      window.onload=function(){
+
+        var dataSet = ["蘋果","香蕉","芭樂","西瓜"]
+
+        var p = d3.select("body").selectAll("p")
+
+        var update = p.data(dataSet)
+        var enter = update.enter()
+        var exit = update.exit()
+
+        update
+          .text(function(d,i){
+            return d + " " + i
+          })
+
+        enter
+          .append("p")
+          .text(function(d,i){
+            return d + " " + i
+          })
+
+        exit.remove()
+
+      }   
+  	</script>
+    
+  </head>
+  <body>
+    <p>123</p>
+    <p>123</p>
+    <p>123</p>
+    <p>123</p>
+    <p>123</p>
+  </body>
+</html>

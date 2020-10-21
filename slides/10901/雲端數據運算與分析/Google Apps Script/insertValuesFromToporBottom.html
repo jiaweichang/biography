@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+
+<head>
+  <meta charset="UTF-8">
+  <script src="https://code.jquery.com/jquery-1.9.1.js"></script>
+  <style>
+  input {
+    width: 300px;
+    font-size: 15px;
+    margin: 2px 0;
+    padding: 2px 5px;
+  }
+  
+  td {
+    border: 1px solid #aaa;
+    padding:2px 5px;
+  }
+  </style>
+</head>
+
+<body>
+  Google App Script：<input id="appUrl" value="https://script.google.com/macros/s/AKfycbyZIo-B0n02xNSOLmpQ-hQ-EJHtjRJJRHRC_8KM3LlkgkFfBM0/exec"><br/> 
+  試算表網址：<input id="sheetsUrl" value="https://docs.google.com/spreadsheets/d/17rOrO4bnvYjq0-AJbY0Y0OLdzGZPlN1DGCXehixfq9g/edit#gid=0"><br/> 
+  工作表名稱：<input id="sheetName" value="testSheet"><br/> 
+  寫入方式：
+  <select id="type">
+    <option value="top">從上寫入</option>
+    <option value="bottom">寫入在最後一列</option>
+  </select>
+  <br/> 
+  資料：
+  <table>
+    <tr>
+      <td>123</td>
+      <td>456</td>
+      <td>789</td>
+    </tr>
+  </table>
+  <button id="sendBtn">寫入</button>
+  <script>
+  var appUrl = $('#appUrl'),
+    sheetsUrl = $('#sheetsUrl'),
+    sheetName = $('#sheetName'),
+    type = $('#type'),
+    sendBtn = $('#sendBtn'),
+    show = $('#show');
+  var data = [['123','456','789']];
+  var parameter = {};
+  sendBtn.on('click', function() {
+    parameter = {
+      url: sheetsUrl.val(),
+      name: sheetName.val(),
+      data: data.toString(),
+      row: data.length,
+      column: data[0].length,
+      insertType: type.val()
+    };
+    $.post(appUrl.val(), parameter, function(data) {
+    if(data) 
+        alert("成功!");} );
+  });
+  </script>
+
+</body>
+
+</html>
