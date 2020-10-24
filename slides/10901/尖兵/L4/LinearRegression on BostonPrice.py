@@ -7,6 +7,7 @@
 from sklearn import datasets
 from sklearn.model_selection import train_test_split  # 切割資料為訓練與測試集
 from sklearn.linear_model import LinearRegression
+from sklearn.metrics import mean_squared_error
 
 loaded_data = datasets.load_boston()
 
@@ -28,9 +29,13 @@ model.fit(X_train, Y_train)
 
 print(model.predict(X_test[:4, :]))
 
+y_pred = model.predict(X_test[:4])
+
 
 # In[4]:
 
 
 print(Y_test[:4])
 
+
+print("MSE:", mean_squared_error(Y_test[:4], y_pred))
