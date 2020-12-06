@@ -39,8 +39,8 @@
       parameter = {
         url: sheetsUrl.val(),
         name: sheetName.val(),
-        startRow: startRow.val()*1,
-        startColumn: startColumn.val()*1
+        row: startRow.val()*1,
+        col: startColumn.val()*1
       };
   	  $.post(appUrl.val(), parameter, function(data) {
   	  	if(!data){
