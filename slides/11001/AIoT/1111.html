@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>2222</title>
+	<style>
+		#myHeader{
+			background-color: lightblue;
+			color: black;
+			padding: 50px;
+			text-align: center;
+		}
+		/* Style all elements with the class name "city" */
+		.city {
+		  background-color: tomato;
+		  color: white;
+		  padding: 10px;
+		} 
+
+		.city1 {
+		  background-color: green;
+		  color: white;
+		  padding: 10px;
+		}
+
+		.main{
+			text-align: center;
+		}
+	</style>
+</head>
+<body>
+	<h2>The id Attribute</h2>
+	<p>Use CSS to style an element with the id</p>
+	<h1 id="myHeader">My Header</h1>
+
+	<button onclick="displayResult()">Change</button>
+	<button onclick="displayOriginal()">Recover</button>
+
+	<h2>Difference Between Class and ID</h2>
+	<p>A class name can be used by multiple HTML elements, while an id name must only be used by one HTML element within the page:</p>
+
+	<!-- Multiple elements with same class -->
+	<h2 class="city">London</h2>
+	<p>London is the capital of England.</p>
+
+	<h2 class="city1 main">Paris</h2>
+	<p>Paris is the capital of France.</p>
+
+	<h2>Tokyo</h2>
+	<p class="city main">Tokyo is the capital of Japan.</p>
+
+	<script type="text/javascript">
+		function displayResult(){
+			document.getElementById("myHeader").innerHTML ="祝你幸運";
+		}
+		function displayOriginal(){
+			document.getElementById("myHeader").innerHTML ="My Header";
+		}
+	</script>
+
+</body>
+</html>
