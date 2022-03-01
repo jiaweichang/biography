@@ -1,0 +1,15 @@
+Top Conference:
+1. ACM Mutlimedia
+2. ACM Multimedia Systems (MMSys)
+3. Mobile and Ubiquitous Multimedia (MUM)
+4. ACM International Conference on Multimedia Retrieval (ICMR)
+5. Conference on Computer Vision and Pattern Recognition
+6. International Conference on Acoustics, Speech, & Signal Processing
+7. Conference on Empirical Methods in Natural Language Processing
+
+Top Jounral:
+1. IEEE Transactions on Multimedia
+2. IEEE MULTIMEDIA
+3. Multimedia Tools and Applications
+4. ACM Transactions on Multimedia Computing Communications and Applications
+5. International Journal of Multimedia Information Retrieval
