@@ -1,5 +1,0 @@
-Keras
-https://github.com/xuannianz/EfficientDet
-
-Pytorch
-https://github.com/signatrix/efficientdet
